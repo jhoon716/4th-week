@@ -29,7 +29,7 @@ function App() {
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
           <Nav.Link> <Link to="/members">My Friends</Link></Nav.Link>
-          <Nav.Link> <Link to="/roll_sheet">Roll Sheets</Link></Nav.Link>
+          <Nav.Link> <Link to="/roll_sheet">Roll-Sheets</Link></Nav.Link>
           <Nav.Link> <Link to="/about">About</Link></Nav.Link>
           {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
             <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
@@ -52,8 +52,8 @@ function App() {
         </Route>
 
         {/* 나중에 "/members/detail"로 바꿀것 */}
-        <Route path="/detail">
-          <MembersDetail />
+        <Route path="/detail/:id">
+          <MembersDetail members = {members}/>
         </Route>
 
         <Route path="/roll_sheet">
