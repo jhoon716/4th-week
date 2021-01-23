@@ -7,7 +7,14 @@
   pointer-events: none;
 }
 
-.black-nav {
+.background-sakura{
+  /* background-image: url(./public/sakura.gif); */
+  background-position: center;
+  color: white;
+}
+
+/* Test용 블로그 백업
+ .black-nav {
   background: black;
   width: 100%;
   display: flex;
@@ -21,7 +28,7 @@
   margin-top: 20px;
   padding : 20px;
   background: #eeeeee;
-}
+} */
 
 .list{
   margin-top : 30px;
