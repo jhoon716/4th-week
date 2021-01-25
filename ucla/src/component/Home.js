@@ -14,7 +14,7 @@ function Home() {
         </p>
         <p>
             {/* 뒤로가고 싶으면 history.goback() */}
-            <Button variant="primary" onClick = {()=>{history.push('/members')}}>쪽지 보내러 가기</Button>
+            <Button variant="primary" onClick = {()=>{history.push('/members')}}>내 그룹 보러 가기</Button>
         </p>
         </Jumbotron>
     )

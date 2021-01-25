@@ -1,5 +1,5 @@
 /* eslint-disable */
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 
 //css
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -15,11 +15,12 @@ import Home from './component/Home.js'
 //Routing & ajax용 라이브러리 axios
 //axios는 object 형태로, fetch쓰면 json형태로
 import {Link, Route,Switch} from 'react-router-dom';
-import axios from 'axios';
+import axios from 'axios'
 
 function App() {
 
-  let [members, membersEdit] = useState(Data);
+  let [members, setMembers] = useState(Data);
+  
 
   return(
     //네비게이션 바
@@ -52,9 +53,8 @@ function App() {
           <Members members = {members}/>
         </Route>
 
-        {/* 나중에 "/members/detail"로 바꿀것 */}
-        <Route exact path="/members/detail/:id">
-          <MembersDetail members = {members}/>
+        <Route exact path="/members/:id">
+          <MembersDetail/>
         </Route>
 
         <Route path="/roll_sheet">
