@@ -10,7 +10,7 @@ function Members(props) {
 
     useEffect (()=>{
         start = false
-        axios.get('http://192.249.18.163:3001/api/users')
+        axios.get('http://localhost:3001/api/users')
         .then((result) => { 
             console.log(result.data);
             setLoader(false);
