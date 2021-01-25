@@ -1,0 +1,23 @@
+//함수 역할 - sass를 쓰는 주된 이유 : css를 프로그래밍 언어처럼 만드는 preprocessor
+@mixin alert() {
+    background: #ffe591b0;
+    padding : 20px;
+    border-radius:5px;
+    max-width: 500px;
+    width: 100%;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.my-alert {
+    @include alert();
+}
+
+.my-alert p {
+    margin-bottom : 0;
+}
+
+.my-alert-red {
+    @extend .my-alert;
+    background: red;
+}

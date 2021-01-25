@@ -12,9 +12,10 @@ import Members from './component/Members.js'
 import MembersDetail from './component/MembersDetail.js'
 import Home from './component/Home.js'
 
-
-//Routing
+//Routing & ajax용 라이브러리 axios
+//axios는 object 형태로, fetch쓰면 json형태로
 import {Link, Route,Switch} from 'react-router-dom';
+import axios from 'axios';
 
 function App() {
 
@@ -28,9 +29,9 @@ function App() {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
-          <Nav.Link> <Link to="/members">My Friends</Link></Nav.Link>
-          <Nav.Link> <Link to="/roll_sheet">Roll-Sheets</Link></Nav.Link>
-          <Nav.Link> <Link to="/about">About</Link></Nav.Link>
+          <Nav.Link as={Link} to="/members">My Friends</Nav.Link>
+          <Nav.Link as={Link} to="/roll_sheet">Roll-Sheets</Nav.Link>
+          <Nav.Link as={Link} to="/about">About</Nav.Link>
           {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
             <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
             <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
@@ -47,12 +48,12 @@ function App() {
           <Home />
         </Route>
 
-        <Route path="/members">
+        <Route exact path="/members">
           <Members members = {members}/>
         </Route>
 
         {/* 나중에 "/members/detail"로 바꿀것 */}
-        <Route path="/detail/:id">
+        <Route exact path="/members/detail/:id">
           <MembersDetail members = {members}/>
         </Route>
 
