@@ -12,7 +12,7 @@ function RollSheet(){
     useEffect (()=>{
         axios({
             method: 'get',
-            url: 'http://localhost:3001/api/message',
+            url: 'http://192.249.18.163:3001/api/message',
             withCredentials: true
         })
         .then((result) => { 
@@ -31,7 +31,7 @@ function RollSheet(){
             <div class="container" >
                 <h1 style={{marginTop: '50px', marginBottom: '10px',fontFamily: 'Yeon Sung, cursive', fontSize:'3rem'}}>롤링페이퍼</h1>
                 <h6 style ={{fontFamily: 'Yeon Sung, cursive', fontSize:'1.75rem'}}>매일 자정 새로운 쪽지함이 열려요! 누가 또 저에게 쪽지를 보냈을까요?</h6>
-                <h6 style ={{marginBottom: '20px', fontFamily: 'Yeon Sung, cursive', fontSize:'1.5rem'}}>나와 시그널이 통한 친구는 현재까지 <strong>'3명'</strong> 이네요!</h6>
+                {/* <h6 style ={{marginBottom: '20px', fontFamily: 'Yeon Sung, cursive', fontSize:'1.5rem'}}>나와 시그널이 통한 친구는 현재까지 <strong>'3명'</strong> 이네요!</h6> */}
             </div>
             <div class="container" style={{marginTop: '50px'}}>
                 <img class="mail-box" style={{marginTop:'0px', marginBottom:'50px'}}/>
@@ -46,6 +46,7 @@ function RollSheet(){
                         </div>
                 }
             </div>
+            <div style={{marginTop:'50px'}}><br/></div>
         </div>
     )
 }

@@ -13,7 +13,7 @@ function Members(props) {
     let start = true
 
     useEffect (()=>{
-        axios.get('http://localhost:3001/api/users')
+        axios.get('http://192.249.18.163:3001/api/users')
         .then((result) => { 
             console.log("성공!!!!!!")
             console.log(result.data);
@@ -66,7 +66,7 @@ function Members(props) {
 function Card(props) {
     let history = useHistory()
     let path = "/members/" + props.member.id
-    let srcPath = "http://localhost:3001/api/users/profile/" +  props.member.id
+    let srcPath = "http://192.249.18.163:3001/api/users/profile/" +  props.member.id
     let dummyPath = "https://codingapple1.github.io/shop/shoes1.jpg"
 
     return (

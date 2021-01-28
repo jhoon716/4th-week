@@ -5,7 +5,7 @@ export const signOut = async token => {
         user: token
     };
 
-    const { data } = await axios.get('http://localhost:3001/api/logout', {
+    const { data } = await axios.get('http://192.249.18.163:3001/api/logout', {
         headers
     });
 

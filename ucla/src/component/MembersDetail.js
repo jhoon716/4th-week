@@ -18,7 +18,7 @@ function MembersDetail() {
     let [loader, setLoader] = useState(true)
     let [tab, setTab] = useState(0)
     let start = true
-    let srcPath = "http://localhost:3001/api/users/profile/" +  id
+    let srcPath = "http://192.249.18.163:3001/api/users/profile/" +  id
 
 
     input = ''
@@ -34,7 +34,7 @@ function MembersDetail() {
     //component 생성, 업데이트(재렌더링), 퇴장시 효과 줌 -> 옛날 LifeCycle Hook과 같은 기능.
     //3초간 alert띄우기 
     useEffect (()=>{
-        axios.get('http://localhost:3001/api/users/' + id)
+        axios.get('http://192.249.18.163:3001/api/users/' + id)
         .then((result) => { 
             console.log(result.data);
             setLoader(false);
@@ -98,7 +98,7 @@ function TabContent(props) {
     if(props.tab == 0){
         return (
             <div style={{marginTop:'50px', marginBottom:'50px'}}>
-                <p>{props.member.introduction}</p>
+                <pre>{props.member.introduction}</pre>
                 <Button variant="outline-secondary" style={{marginTop:'30px', marginBottom:'50px'}} onClick={() => { history.goBack(); }}>뒤로가기</Button>
             </div>
         )
@@ -125,7 +125,7 @@ function TabContent(props) {
                         else {
                             axios({
                                 method: 'post',
-                                url: 'http://localhost:3001/api/message',
+                                url: 'http://192.249.18.163:3001/api/message',
                                 data: {
                                     sender: 'test', //로그인 합치고 토큰 이용해 바꿀 예정
                                     receiver: props.id,

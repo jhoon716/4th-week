@@ -35,6 +35,7 @@ router.get('/users/profile/:id', function(req, res) {
 router.get('/message', function(req, res) {
     const token = req.cookies.user
     const decoded = jwt.decode(token, secretObj.secret)
+    console.log(req.cookies)
     if (decoded) {
         const userId = decoded.id
         Message.find({receiver: userId}, {content: 1, time: 1}, (err, messages) => {

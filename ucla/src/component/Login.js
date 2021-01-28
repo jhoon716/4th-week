@@ -9,7 +9,7 @@ function Login({setHasCookie}) {
     const [userPw, setUserPw] = useState('');
 
     const loginApi = function(user) {
-        return fetch('http://localhost:3001/auth/login', {
+        return fetch('http://192.249.18.163:3001/auth/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -51,7 +51,7 @@ function Login({setHasCookie}) {
             <MDBContainer style={{height:'100%', width:'100%', textAlign:'center', margin:'0px auto'}}>
                 <MDBRow >
                     <MDBCol md="2" style={{height:'100%', width:'100%', textAlign:'center', margin:'0px auto'}}>
-                        <h2 style={{marginBottom:'50px', marginTop:'300px'}}>Sign In</h2>
+                        <h2 style={{marginBottom:'50px', marginTop:'100px'}}>Sign In</h2>
                         <form onSubmit={handleSubmit}>
                             <input
                             type="text"
