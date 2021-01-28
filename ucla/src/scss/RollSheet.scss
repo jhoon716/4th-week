@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Gaegu&family=Gamja+Flower&family=Nanum+Pen+Script&family=Yeon+Sung&display=swap&family=Poor+Story');
+
+.square {
+    position: relative;
+    width: 30%;
+    border-radius: 15px;
+    text-align: center;
+    margin-right: 30px;
+}
+
+.content{
+    overflow:hidden;word-wrap:break-word;
+    padding:10px;
+    top:50%;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    // text-overflow:ellipsis; 
+    // overflow:hidden; 
+    // white-space:nowrap; 
+    // word-wrap:break-word; 
+    // word-break:break-all;
+    // display:-webkit-box; -webkit-line-clamp:2;
+}
+
+.mail-box{
+    border: none;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    outline:none;
+    object-fit:cover;
+    background-image: url(image/mail.png);
+    background-position: center;
+    background-position: center;
+    background-size: cover;
+    width:150px;
+    height:150px;
+    outline:none;
+    box-shadow: none;
+    border:none!important;
+    border-width: 0;
+}
+
+  
+// .square:after {
+//     content: "";
+//     display: block;
+//     padding-bottom: 100%;
+// }
+
+// .content {
+//     position: absolute;
+//     width: 100%;
+//     height: 100%;
+// }
+
+// .square{
+//     border:5px solid red;
+// }

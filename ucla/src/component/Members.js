@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {Jumbotron} from 'react-bootstrap';
 import Loader from './Loader.js'
 import axios from 'axios';
-import {Link, Route,Switch} from 'react-router-dom';
+import {Link, Redirect, Route,Switch} from 'react-router-dom';
 import MembersDetail from './MembersDetail.js'
 import {useHistory, useParams} from 'react-router-dom';
 
@@ -28,8 +28,11 @@ function Members(props) {
 
     return (
         <div>
-            <Jumbotron
-                className="background-sakura">
+            
+            {//!props.hasCookie ? <Redirect to="/login" /> : <Redirect to="/members" />
+            }
+
+            <Jumbotron>
                 <h1>그룹명 : MADCAMP</h1>
                 <p>
                     기간 : 2020/12/29~ 2021/01/26
@@ -77,7 +80,7 @@ function Card(props) {
             backgroundRepeat: 'no-repeat'
         }} />
         <h4 style ={{marginTop:'20px'}}>{props.member.name}</h4>
-        <p>{props.member.status}</p>
+        <p  style={{marginBottom:'40px'}}>{props.member.status}</p>
       </div>
     )
 }

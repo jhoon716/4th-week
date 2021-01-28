@@ -1,0 +1,79 @@
+.background-sakura{
+    background-image: url(image/spring.jpg);
+    color: black;
+    text-align: end;
+}
+@media(min-width: 768px){
+    .p-md-5 {
+        padding: 3rem!important;
+    }
+}
+
+.position-relative {
+    position: relative!important;
+}
+
+.overflow-hidden {
+    overflow: hidden!important;
+}
+
+.product-device {
+    position: absolute;
+    right: 10%;
+    bottom: -30%;
+    width: 300px;
+    height: 540px;
+    background-color: #333;
+    border-radius: 21px;
+    transform: rotate(30deg);
+}
+
+.shadow-sm {
+    box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;
+}
+
+.d-md-block {
+    display: block!important;
+}
+
+// .btn {
+//     display: inline-block;
+//     font-weight: 400;
+//     line-height: 1.5;
+//     color: #212529;
+//     text-align: center;
+//     text-decoration: none;
+//     vertical-align: middle;
+//     cursor: pointer;
+//     -webkit-user-select: none;
+//     -moz-user-select: none;
+//     user-select: none;
+//     background-color: transparent;
+//     border: 1px solid transparent;
+//     padding: .375rem .75rem;
+//     font-size: 1rem;
+//     border-radius: .25rem;
+//     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+// }
+
+.btn-outline-secondary {
+    color: #6c757d;
+    border-color: #6c757d;
+}
+.product-device-2 {
+    top: -25%;
+    right: auto;
+    bottom: 0;
+    left: 5%;
+}
+
+.product-device::before {
+    position: absolute;
+    top: 10%;
+    right: 10px;
+    bottom: 10%;
+    left: 10px;
+    content: "";
+    background-color: rgba(255, 255, 255, .1);
+    border-radius: 5px;
+}

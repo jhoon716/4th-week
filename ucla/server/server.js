@@ -15,7 +15,10 @@ app.use(bodyParser.json());
 
 app.use(cookieParser())
 
-app.use(cors())
+app.use(cors({
+    origin: true,
+    credentials: true
+}))
 
 // Connect to DB
 const db = mongoose.connection
@@ -24,7 +27,9 @@ db.once('open', () => {
     // Connected to Mongodb server
     console.log("Connected to mongod server")
 })
-mongoose.connect('mongodb://localhost/love_signal')
+mongoose.connect('mongodb://localhost/love_signal', {
+    useNewUrlParser: true
+})
 
 // Set rendering engine
 app.set('view engine', 'ejs')
@@ -41,9 +46,9 @@ app.use(express.static(__dirname + '/views'))
 // }))
 
 // Routers
-const userRouter = require('./routes/user')
+const authRouter = require('./routes/auth')
 const apiRouter = require('./routes/api')
-app.use('/user', userRouter)
+app.use('/auth', authRouter)
 app.use('/api', apiRouter)
 
 // Start server

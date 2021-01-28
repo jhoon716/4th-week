@@ -1,5 +1,6 @@
 const express = require('express')
 const crypto = require('crypto')
+const multer = require('multer')
 const router = express.Router()
 const User = require("../models/user")
 
@@ -12,19 +13,29 @@ router.get('/signup', function(req, res, next) {
     res.render('user/signup')
 })
 
+const storage = multer.diskStorage({
+    destination: "./profiles/",
+    filename: function(req, file, cb) {
+        return cb(null, file.originalname)
+    }
+})
+
 // Sign up
-router.post('/signup', function(req, res, next) {
+router.post('/signup', multer({storage: storage}).single('profile'), function(req, res, next) {
     let body = req.body
+    console.log(body)
     
     let inputPassword = body.password
     let salt = Math.round((new Date().valueOf() * Math.random())) + ""
     let hashPassword = crypto.createHash("sha512").update(inputPassword + salt).digest("hex")
     
-    const user  = new User()
-    user.name   = body.userName
-    user.id     = body.userId
-    user.passwd = hashPassword
-    user.salt   = salt
+    const user   = new User()
+    user.name    = body.userName
+    user.id      = body.userId
+    user.passwd  = hashPassword
+    user.salt    = salt
+    user.profile = req.file.filename
+    user.status  = body.status
     user.save((err) => {
         if (err) {
             // Sign up failed
@@ -32,7 +43,8 @@ router.post('/signup', function(req, res, next) {
             res.json({result: 0})
             return
         }
-        res.redirect('/user/login')
+        res.json({ result: 'OK' })
+        // res.redirect('/user/login')
     })
 })
 
@@ -68,7 +80,7 @@ router.post('/login', function(req, res, next) {
         }
 
         const dbPassword = user.passwd
-        const inputPassword = body.password
+        const inputPassword = body.password        
         const salt = user.salt
         const hashPassword = crypto.createHash("sha512").update(inputPassword + salt).digest("hex")
 
@@ -80,25 +92,26 @@ router.post('/login', function(req, res, next) {
             },
             secretObj.secret,
             {
-                expiresIn: '5m'
+                expiresIn: '1d'
             })    
 
             // Send cookie as token
-            res.cookie("user", token)
-            // res.json({
-            //     token: token
-            // })
-            // req.session.id = body.id
+            res.cookie('user', token)
+            res.status(200).json({
+                result: 'OK',
+                token
+            });
         } else {
             console.log("Wrong password")
+            res.status(400).json({error: 'invalid user'})
         }
-        res.redirect('/user/login')
+        // res.redirect('/user/login')
     })
 })
 
 router.get('/logout', function(req, res, next) {
     // req.session.destroy()
-    res.clearCookie("user")
+    res.clearCookie('user')
 
     res.redirect('/user/login')
 })
